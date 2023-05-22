@@ -41,9 +41,10 @@ export const getServerSideProps: GetServerSideProps<{
     const {host} = req.headers;
     const currentDomain = `http://${host}`;
     console.log("host", host)
+    console.log("req.headers", req.headers);
     console.log("currentDomain", currentDomain);
     const dt = new Date().toString()
-    const res = await fetch(`${currentDomain}/api/hello`);
+    const res = await fetch(`http://127.0.0.1:3000/api/hello`);
     const data = await res.json();
     return {props: {data, dt}};
 };
